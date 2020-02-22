@@ -1,0 +1,10 @@
+mixin modal(title, id)
+    div.modal.fade(id!= id, tabindex="-1", role="dialog", aria-labelledby="exampleModalCenterTitle", aria-hidden="true")
+        div.modal-dialog.modal-dialog-centered(role="document")
+            div.modal-content
+                div.modal-header
+                    h5.modal-title#exampleModalLongTitle=title
+                    button.close(type="button", data-dismiss="modal", aria-label="Close")
+                        span(aria-hidden="true") &times
+                div.modal-body
+                    block

@@ -1,0 +1,46 @@
+const userDb = require('../db/user');
+const bcrypt = require('bcrypt');
+
+const BCRYPT_SALT_ROUNDS = 10;
+
+function findUser (login, callback) {
+    userDb.find.findByLogin(login).then(([rows, fields]) => {
+        if (rows[0] && rows[0].login === login) {
+            return callback(null, rows[0]);
+        }
+        return callback(null);
+    });
+}
+
+module.exports = function (name, login, password, phone, done) {
+    findUser(login,function(err, user) {
+        if (err) {
+            console.log('Ошибка регистрации: ', err);
+            return done(err);
+        }
+        // already exists
+        if (user) {
+            console.log('User already exists');
+            return done(null, false);
+        } else {
+            // save the user
+            let newUser = {};
+            // set the user's local credentials
+            newUser.login = login;
+            newUser.name = name;
+            newUser.phone = phone;
+            bcrypt.hash(password, BCRYPT_SALT_ROUNDS).then(function (hashedPassword) {
+                newUser.password = hashedPassword;
+                userDb.create.save(newUser).then(([rows, fields]) => {
+                    if(!rows) {
+                        console.log('Error in Saving user');
+                        //throw err;
+                        return done("Ошибка");
+                    }
+                    console.log('User Registration succesful');
+                    return done(null, newUser);
+                });
+            });
+        }
+    });
+}

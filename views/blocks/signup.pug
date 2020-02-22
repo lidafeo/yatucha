@@ -1,0 +1,30 @@
+include ../mixins/modal_form.pug
++modal("Регистрация", "signupModal")
+    form.needs-validation#form-signup(method="post", action="/signup", novalidate)
+        div.form-group
+            div.text-danger#err-signup
+        div.form-group
+            label(for="login-inp") Логин
+            input.form-control#login-inp(type="text", aria-describedby="loginHelp" name="login" placeholder="Login" required)
+            div.invalid-feedback Пожалуйста введите новый логин
+        div.form-group
+            label(for="password-inp") Пароль
+            input.form-control#password-inp(type="password", name="password", minlength="3", placeholder="Password" required)
+            div.invalid-feedback Пожалуйста введите пароль не менее 3 символов
+        div.form-group
+            label(for="password2-inp") Повторите пароль
+            input.form-control#password2-inp(type="password", name="password2", minlength="3", placeholder="Password" required)
+            div.invalid-feedback Пароли не совпадают
+        div.form-group
+            label(for="name-inp") Имя
+            input.form-control#name-inp(type="text", name="name" placeholder="Иванов Иван" required)
+            div.invalid-feedback Пожалуйста введите свое имя
+        div.form-group
+            label(for="phone-inp") Телефон
+            input.form-control#phone-inp(type="text", name="phone" placeholder="8(888)888-88-88" maxlength="15" pattern="[7-8]\\([0-9]{3}\\)[0-9]{3}-[0-9]{2}-[0-9]{2}" required)
+            div.invalid-feedback Пожалуйста введите номер телефона в формате 7(___)-__-__
+        div.form-group.form-check
+            input.form-check-input#check-inp(type="checkbox" required)
+            label.form-check-label(for="check-inp") Принимаю условия использования ЯТУЧА
+            div.invalid-feedback Чтобы продолжить, примите условия
+        button.btn.btn-primary(type="submit") Зарегистрироваться

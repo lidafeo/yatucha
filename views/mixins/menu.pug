@@ -1,0 +1,9 @@
+mixin menu
+    ul.list-group
+        li.list-group-item
+            b Категории
+        each category in common.categories
+            li.list-group-item
+                a(href="/category/" + category.name_eng)
+                    img.mr-1(src="/images/icons/star.svg" alt="" width="32" height="32")
+                a(href="/category/" + category.name_eng) #{category.name}

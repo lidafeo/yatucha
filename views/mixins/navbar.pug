@@ -1,0 +1,34 @@
+mixin navbar
+    nav.navbar.navbar-expand-lg.navbar-light.bg-white.mb-4
+        a.mr-1.ml-5(href='/')
+            img(src="/images/icons/cloud.svg" alt="" width="48" height="48")
+        a.navbar-brand(href='/')
+            h4 Ятуча
+        button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+            span.navbar-toggler-icon
+        div.collapse.navbar-collapse#navbarSupportedContent
+            ul.navbar-nav.mr-auto
+                li.nav-item.active
+                    a.nav-link(href="/">Home <span class="sr-only") (current)
+                li.nav-item
+                    a.nav-link(href="#") Link
+                li.nav-item.dropdown
+                    a.nav-link.dropdown-toggle(href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+                    Dropdown
+                    div.dropdown-menu(aria-labelledby="navbarDropdown")
+                        a.dropdown-item(href="#") Action
+                        a.dropdown-item(href="#") Another action
+                        div.dropdown-divider
+                        a.dropdown-item(href="#") Something else here
+                li.nav-item
+                    a.nav-link.disabled(href="#") Disabled
+            //form.form-inline.my-2.my-lg-0
+            //    input.form-control.mr-sm-2(type="search" placeholder="Search" aria-label="Search")
+            //    button.btn.btn-outline-success.m-2.my-sm-0(type="submit") Search
+            form.form-inline.my-2.my-lg-0
+                button.btn.btn-outline-success.m-2.py-lg-2.my-sm-0(type="button", data-toggle="modal", data-target="#signupModal") Регистрация
+            if !common.user
+                form.form-inline.my-2.my-lg-0.mr-5
+                    button.btn.btn-outline-success.m-2.py-lg-2.my-sm-0(type="button", data-toggle="modal", data-target="#loginModal") Войти
+            if common.user
+                a.nav-link.btn.btn-outline-success.m-2.my-sm-0.py-lg-2.mr-5(type="button", href="/logout")  Выйти
