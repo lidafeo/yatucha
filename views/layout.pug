@@ -6,6 +6,7 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/input-file.css')
     link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
   body
     +navbar
@@ -24,3 +25,4 @@ html
     script(src='/javascripts/plugins/jquery-3.4.1.js')
     script(src='/javascripts/login.js')
     script(src='/javascripts/signup.js')
+    block scripts

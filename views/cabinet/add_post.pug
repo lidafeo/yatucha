@@ -1,5 +1,44 @@
 extends ../layout
 
 block content
-    p Привет, #{user}
-    p Это добавление поста
+    div.ml-4
+        h2 Создание нового поста
+        hr
+        form.needs-validation#create-post(name="compForm" novalidate)
+            div.input-group.max-w-600
+                div.input-group-prepend
+                    span.input-group-text#input-group-title Заголовок
+                input.form-control.inp-text.color-inp#input-title(type="text" aria-label="Default" aria-describedby="input-group-title" required)
+                div.invalid-feedback Придумайте заголовок
+            div.custom-inp-file
+                div.form-group.pl-0.ml-0
+                    label.label.max-w-600
+                        i.material-icons Добавить фото
+                        small.form-text.text-muted Формат - jpg или png, максимум - 6 шт.
+                        input#photo-1(type="file", accept="image/jpeg,image/png")
+            div#preview.mb-1
+                //-textarea.color-inp#area-inp(rows="10" cols="100" name="text" placeholder="Добавьте текст, если нужно")
+            h4.text-secondary Добавьте текст, если нужно
+            div#tool-bar-1
+                div.circle-div.m-1(data-for="removeFormat", data-need="0")
+                    img.intLink.icons-circle#f-remove-format(title="Удалить форматирование" src="/images/icons/x.svg" alt="Удалить форматирование" width="32" height="32")
+                div.circle-div.m-1(data-for="bold", data-need="1")
+                    img.intLink.icons-circle#f-bold(title="Жирный шрифт" src="/images/icons/type-bold.svg" alt="Жирный шрифт" width="32" height="32")
+                div.circle-div.m-1(data-for="italic", data-need="1")
+                    img.intLink.icons-circle#f-italic(title="Курсив" src="/images/icons/type-italic.svg" alt="Курсив" width="32" height="32")
+                div.circle-div.m-1(data-for="underline", data-need="1")
+                    img.intLink.icons-circle#f-underline(title="Подчеркивание" src="/images/icons/type-underline.svg" alt="Подчеркивание" width="32" height="32")
+                div.circle-div.m-1(data-for="insertorderedlist", data-need="0")
+                    img.intLink.icons-circle#f-numbered-list(title="Нумерованный список" src="/images/icons/list-ol.svg" alt="Нумерованный список" width="32" height="32")
+                div.circle-div.m-2(data-for="insertunorderedlist", data-need="0")
+                    img.intLink.icons-circle#f-dotted-list(title="Список" src="/images/icons/list-ul.svg" alt="Список" width="32" height="32")
+                div.circle-div.m-1(data-for="link", data-need="0")
+                    img.intLink.icons-circle#f-hyperlink(title="Ссылка" src="/images/icons/box-arrow-up-right.svg" alt="Ссылка" width="32" height="32")
+                div.circle-div.m-1(data-for="h1", data-need="0")
+                    img.intLink.icons-circle#f-h1(title="Заголовок" src="/images/icons/type-h1.svg" alt="Заголовок" width="32" height="32")
+            div.form-row.mb-3
+                div.color-inp-area.area-inp.max-w-600#area-inp(contenteditable)
+            button.btn.btn-primary.btn-lg(type="submit") Опубликовать
+block scripts
+    script(src='/javascripts/upload_file.js')
+    script(src='/javascripts/redactor.js')

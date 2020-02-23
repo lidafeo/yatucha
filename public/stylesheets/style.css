@@ -1,7 +1,52 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url(/images/background/tucha.jpg);
 }
 
 a {
   color: #00B7FF;
+}
+.list-menu {
+  background-color: #ffffff99
+                  !important;
+}
+.navbar {
+  background-color: #ffffff99;
+}
+.color-inp {
+  background-color: #ffffff99
+                    !important;
+}
+.max-w-600 {
+  max-width: 600px;
+}
+.color-inp-area {
+  background-color: #ffffff66;
+  width: 600px;
+}
+.area-inp {
+  height: 200px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.circle-div {
+  width: 42px;
+  height: 42px;
+  background-color: #ffffffcc;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  text-align: center;
+  display: inline-block;
+}
+.circle-item {
+  position: relative; top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.icons-circle {
+  position: relative; top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
