@@ -20,13 +20,19 @@ a {
 .max-w-600 {
   max-width: 600px;
 }
-.color-inp-area {
-  background-color: #ffffff66;
-  width: 600px;
+.max-w-800 {
+    max-width: 800px;
 }
 .area-inp {
   height: 200px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  display: inline-block;
+  font: 400 1rem/1.5 Century Gothic, sans-serif;
+  word-wrap: break-word;
+  min-width: 600px;
+  padding: 15px;
+  background-color: #f3f3f3;
+  border-radius: 2px;
+  outline: 0;
 }
 .circle-div {
   width: 42px;
@@ -38,15 +44,49 @@ a {
   text-align: center;
   display: inline-block;
 }
-.circle-item {
-  position: relative; top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
 .icons-circle {
   position: relative; top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+.circle-div:hover {
+    border:1px solid #000
+}
+.wrapper-div {
+    display: inline-block;
+}
+.img-div {
+    height: 150px;
+    width: 196px;
+    display: inline-block;
+    overflow: hidden;
+    border:1px solid #000;
+    position: relative;
+}
+.img-div img {
+    position: absolute;
+    display:block;
+    margin: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    object-fit: cover;
+    transform: scale(1,1);
+    transition: 0.3s ease;
+}
+.img-div:hover img {
+    transform: scale(2,2);
+}
+
+.close-button {
+    position:absolute;
+    top:-5px;
+    right:-5px;
+    display: block;
+    float: right;
+    width: 30px;
+    height: 30px;
 }

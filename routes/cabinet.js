@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/add_post', function(req, res, next) {
+router.get('/add-post', function(req, res, next) {
   let user = req.user;
   getCommonInfo(req.user).then(function (info) {
       console.log(info);

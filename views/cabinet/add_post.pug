@@ -4,12 +4,19 @@ block content
     div.ml-4
         h2 Создание нового поста
         hr
-        form.needs-validation#create-post(name="compForm" novalidate)
+        form.needs-validation.max-w-800#create-post(name="compForm" novalidate)
+            div.text-danger.mb-2#err-post
             div.input-group.max-w-600
                 div.input-group-prepend
                     span.input-group-text#input-group-title Заголовок
                 input.form-control.inp-text.color-inp#input-title(type="text" aria-label="Default" aria-describedby="input-group-title" required)
                 div.invalid-feedback Придумайте заголовок
+            div.input-group.max-w-600.mt-1
+                div.input-group-prepend
+                    span.input-group-text#select-category-title Категория
+                select.custom-select#select-category
+                    each category in common.categories
+                        option(value=category.name_eng) #{category.name}
             div.custom-inp-file
                 div.form-group.pl-0.ml-0
                     label.label.max-w-600
@@ -18,9 +25,9 @@ block content
                         input#photo-1(type="file", accept="image/jpeg,image/png")
             div#preview.mb-1
                 //-textarea.color-inp#area-inp(rows="10" cols="100" name="text" placeholder="Добавьте текст, если нужно")
-            h4.text-secondary Добавьте текст, если нужно
+            h4.text-secondary Содержание поста
             div#tool-bar-1
-                div.circle-div.m-1(data-for="removeFormat", data-need="0")
+                div.circle-div.my-1.mr-1(data-for="removeFormat", data-need="0")
                     img.intLink.icons-circle#f-remove-format(title="Удалить форматирование" src="/images/icons/x.svg" alt="Удалить форматирование" width="32" height="32")
                 div.circle-div.m-1(data-for="bold", data-need="1")
                     img.intLink.icons-circle#f-bold(title="Жирный шрифт" src="/images/icons/type-bold.svg" alt="Жирный шрифт" width="32" height="32")
@@ -34,11 +41,17 @@ block content
                     img.intLink.icons-circle#f-dotted-list(title="Список" src="/images/icons/list-ul.svg" alt="Список" width="32" height="32")
                 div.circle-div.m-1(data-for="link", data-need="0")
                     img.intLink.icons-circle#f-hyperlink(title="Ссылка" src="/images/icons/box-arrow-up-right.svg" alt="Ссылка" width="32" height="32")
-                div.circle-div.m-1(data-for="h1", data-need="0")
-                    img.intLink.icons-circle#f-h1(title="Заголовок" src="/images/icons/type-h1.svg" alt="Заголовок" width="32" height="32")
-            div.form-row.mb-3
-                div.color-inp-area.area-inp.max-w-600#area-inp(contenteditable)
-            button.btn.btn-primary.btn-lg(type="submit") Опубликовать
+                div.circle-div.m-1(data-for="h3", data-need="0")
+                    img.intLink.icons-circle#f-h3(title="Заголовок" src="/images/icons/type-h3.svg" alt="Заголовок" width="32" height="32")
+            div.mb-3
+                div.color-inp.area-inp.max-w-600#area-inp(contenteditable)
+                div.invalid-feedback Необходимо создать содержимое поста: минимум - изображение или текст
+            div.input-group.max-w-600.my-2
+                div.input-group-prepend
+                    span.input-group-text#input-group-tag Теги
+                input.form-control.inp-text.color-inp#input-tag(type="text" aria-label="Default" aria-describedby="input-group-title" value="#")
+                small.form-text.text-muted#tagHelp Теги начинаются со знака # и не содержат пробелы. Для удобства перечислния нажмите на пробел, он автоматически заменится знаком #
+            button.btn.btn-primary.btn-lg.mb-3(type="submit") Опубликовать
 block scripts
     script(src='/javascripts/upload_file.js')
     script(src='/javascripts/redactor.js')
