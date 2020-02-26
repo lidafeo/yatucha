@@ -1,0 +1,10 @@
+mixin block(post)
+    div.post.my-4
+        a.mr-4(href="/channel/" + post.channel) блог #{post.channel}
+        a(href="/post/" + post.id) читать
+        span.text-right #{post.category_name}
+        hr
+        div.body-post
+            h4= post.title
+            p Категория: #{post.category_name}
+            !=post.body

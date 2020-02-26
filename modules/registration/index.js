@@ -1,4 +1,5 @@
 const userDb = require('../db/user');
+const channelDb = require('../db/channel');
 const bcrypt = require('bcrypt');
 
 const BCRYPT_SALT_ROUNDS = 10;
@@ -38,7 +39,15 @@ module.exports = function (name, login, password, phone, done) {
                         return done("Ошибка");
                     }
                     console.log('User Registration succesful');
-                    return done(null, newUser);
+                    channelDb.create.save(newUser).then(([rows, fields]) => {
+                        if(!rows) {
+                            console.log('Error in Saving channel');
+                            //throw err;
+                            return done("Ошибка");
+                        }
+                        console.log('Channel create succesful');
+                        return done(null, newUser);
+                    });
                 });
             });
         }

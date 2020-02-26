@@ -83,7 +83,7 @@ $(document).ready(function() {
             formData.append(`file${i + 1}`, StoreFiles[index]);
         });
         $.ajax({
-            url: '/cabinet/add_post',
+            url: '/cabinet/add-post',
             type: 'post',
             data: formData,
             contentType: false,

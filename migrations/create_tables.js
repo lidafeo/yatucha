@@ -31,7 +31,7 @@ async function createTables() {
     console.log("Создана таблица categories");
 
     await query("CREATE TABLE posts (id INT(32) NOT NULL AUTO_INCREMENT, channel VARCHAR(128) NOT NULL, " +
-        "title VARCHAR(64) NOT NULL, body VARCHAR(1024) NULL, visits int(16) NOT NULL DEFAULT 1, " +
+        "title VARCHAR(64) NOT NULL, body VARCHAR(1024) NULL, visits int(16) NOT NULL DEFAULT 0, " +
         "category_id int(32) NULL, date_publiction datetime NULL, likes int(10) NOT NULL DEFAULT 0, " +
         "actual TINYINT(1) NOT NULL, PRIMARY KEY(id), " +
         "FOREIGN KEY (channel) REFERENCES channels (login) ON UPDATE CASCADE," +
