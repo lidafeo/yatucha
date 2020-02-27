@@ -6,7 +6,7 @@ let getCommonInfo = require('../modules/common/common_info');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  modulePost.findAll().then(posts => {
+  modulePost.findAll(req.user).then(posts => {
     getCommonInfo(req.user).then(function (info) {
       res.render('index', { title: 'Главная', posts: posts, common: info});
     });

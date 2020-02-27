@@ -1,10 +1,31 @@
 mixin block(post)
     div.post.my-4
-        a.mr-4(href="/channel/" + post.channel) блог #{post.channel}
-        a(href="/post/" + post.id) читать
-        span.text-right #{post.category_name}
-        hr
+        div.row
+            div.col-sm.mb-1
+                a.mr-4.text-dark(href="/channel/" + post.channel)
+                    img.mr-1(src="/images/icons/person-fill.svg" alt="" width="25" height="25")
+                    =post.channel
+                a(href="/post/" + post.id) читать
+            div.col-sm.text-right
+                small.form-text.mr-3.text-muted #{post.getDatePubl()}
+        hr.mt-0
         div.body-post
             h4= post.title
-            p Категория: #{post.category_name}
+            p Категория: #{post.categoryName}
             !=post.body
+            div.row
+                div.col-sm.mb-1
+                    each tag in post.tags
+                        a.text-dark(href="/tag/" + tag.tag)
+                            ="#" + tag.tag + " "
+            div.row.mt-2
+                div.col-sm.mb-1
+                    if post.userLike
+                        img.dislike.mr-1(src="/images/icons/heart-fill.svg" alt="" width="30" height="30")
+                    else
+                        img.like.cursor-pointer.mr-1(src="/images/icons/heart.svg" alt="" width="30" height="30" data-id=post.id)
+                    if post.likes != 0
+                        span.count-like
+                            =post.likes
+                div.col-sm.text-right
+                    a.text-dark(href="/category/" + post.categoryNameEng) #{post.categoryName}

@@ -89,7 +89,12 @@ $(document).ready(function() {
             contentType: false,
             processData: false,
             success: function(data) {
-                alert('Файлы были успешно загружены');
+                if(data.result == 'success') {
+                    document.location.href = '/post/' + data.id;
+                }
+                else {
+                    alert('Ошибка');
+                }
             }
         });
     });

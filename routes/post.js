@@ -11,7 +11,7 @@ router.get('/:post', function(req, res, next) {
            return res.render('error/404');
         }
         getCommonInfo(req.user).then(function (info) {
-            res.render('post', { post: result[0], common: info});
+            res.render('post', { post: result, common: info});
         });
     });
 });

@@ -7,4 +7,7 @@ module.exports = function (app, passport, auth) {
     app.use('/category', require('./category'));
     app.use('/post', require('./post'));
     app.use('/channel', require('./channel'));
+
+    //
+    app.post('/like', require('./like'));
 }

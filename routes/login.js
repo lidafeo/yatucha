@@ -13,7 +13,7 @@ module.exports = function(passport) {
             req.logIn(user, function(err) {
                 console.log(user);
                 console.log(user.login);
-                return err ? next(err) : res.redirect('/cabinet');//res.json({'result': 'success'});
+                return err ? next(err) : res.json({'result': 'success'});
             });
 
         })(req, res, next);
