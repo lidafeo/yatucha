@@ -33,17 +33,17 @@ module.exports = async function (user, files, data) {
             //сохраняем картинку в папку
             let ext = file.name.split('.').pop();
             let date = new Date();
-            let filename = "p" +  idPost + "i" + (index + 1) + "d" + date.getDate() + (date.getMonth() + 1)
+            let filename = "p" + idPost + "i" + (index + 1) + "d" + date.getDate() + (date.getMonth() + 1)
                 + date.getFullYear() + "." + ext;
             let readableStream = fs.createReadStream(file.path);
-            let writeableStream = fs.createWriteStream("../files/files_posts/" + filename);
+            let writeableStream = fs.createWriteStream("../public/files/files_posts/" + filename);
             readableStream.pipe(writeableStream);
             let main = 0;
-            if(index === 0) {
+            if (index === 0) {
                 main = 1;
             }
             return postImgDb.create.save(idPost, filename, main);
         }));
-        return idPost;
     }
+    return idPost;
 }

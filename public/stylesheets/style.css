@@ -1,17 +1,22 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: url(/images/background/tucha.jpg);
+  background: url(/images/background/tucha.jpg) no-repeat fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
 }
 
 a {
   color: #00B7FF;
 }
 .list-menu {
-  background-color: #ffffff99
+  background-color: #ffffffbb
                   !important;
 }
 .navbar {
-  background-color: #ffffff99;
+  background-color: #ffffffcc;
 }
 .color-inp {
   background-color: #ffffff99

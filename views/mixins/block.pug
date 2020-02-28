@@ -10,8 +10,17 @@ mixin block(post)
                 small.form-text.mr-3.text-muted #{post.getDatePubl()}
         hr.mt-0
         div.body-post
+            div.img-post
+                each im, index in post.img
+                    div.h-300.div-img-post
+                        div
+                            img.img-post(src="/files/files_posts/" + post.img[index].filename alt="")
+                        if index < post.img.length - 1
+                            div.ml-1
+                                img.img-post(src="/files/files_posts/" + post.img[index + 1].filename alt="")
+                    -index++;
+
             h4= post.title
-            p Категория: #{post.categoryName}
             !=post.body
             div.row
                 div.col-sm.mb-1

@@ -29,6 +29,7 @@ router.post('/add-post', function(req, res, next) {
         console.log(fields);
         getCommonInfo(req.user).then(function (info) {
             modulePost.savePost(user, files, fields).then(result => {
+                console.log(result);
                 res.json({"result": "success", "id": result});
                 //res.redirect('/post/' + result);
                 //res.render('cabinet/add_post', { user: user.name, common: info});
