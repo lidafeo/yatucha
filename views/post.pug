@@ -1,8 +1,6 @@
 extends layout
 
+include mixins/block
+
 block content
-    h4= post.title
-    p автор:
-        a(href="/channel/" + post.channel) #{post.channel}
-    p Категория: #{post.categoryName}
-    !=post.body
+    +block(post)

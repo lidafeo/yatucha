@@ -4,6 +4,7 @@ const LocalStrategy = require('passport-local').Strategy;
 
 const authenticationMiddleware = require('./middleware');
 const userDb = require('../db/user');
+const channelDb = require('../db/channel');
 
 const User = require('../../models/user.js');
 
@@ -12,9 +13,12 @@ const BCRYPT_SALT_ROUNDS = 10;
 function findUser (login, callback) {
     userDb.find.findByLogin(login).then(([rows, fields]) => {
         if (rows[0] && rows[0].login === login) {
-            return callback(null, new User(rows[0]));
+            channelDb.find.findByLogin(login).then(([channel]) => {
+                return callback(null, new User(rows[0], channel[0]));
+            });
+        } else {
+            return callback(null);
         }
-        return callback(null);
     });
 }
 
@@ -45,7 +49,9 @@ function initPassport() {
                 if (!isValid) {
                     return done(null, false);
                 }
-                return done(null, user);
+                userDb.update.updateLastVisit(user.login).then(result => {
+                    return done(null, user);
+                });
             });
         });
     }));

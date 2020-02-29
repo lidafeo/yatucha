@@ -10,4 +10,5 @@ module.exports = function (app, passport, auth) {
 
     //
     app.post('/like', require('./like'));
+    app.post('/get-more', require('./get-more'));
 }

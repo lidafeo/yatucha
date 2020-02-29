@@ -27,7 +27,7 @@ async function createTables() {
     console.log("Создана таблица subscriptions");
 
     await query("CREATE TABLE categories (id INT(32) NOT NULL AUTO_INCREMENT, name VARCHAR(128) NOT NULL, " +
-        "name_eng VARCHAR(128) NOT NULL, actual TINYINT(1) NOT NULL, PRIMARY KEY(id))");
+        "name_eng VARCHAR(128) NOT NULL, sort int(10) DEFAULT 10, actual TINYINT(1) NOT NULL, PRIMARY KEY(id))");
     console.log("Создана таблица categories");
 
     await query("CREATE TABLE posts (id INT(32) NOT NULL AUTO_INCREMENT, channel VARCHAR(128) NOT NULL, " +

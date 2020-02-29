@@ -1,0 +1,42 @@
+extends ./layout
+
+block content
+    div.row
+        div.col-sm-3
+            div.custom-inp-file
+                div.form-group.pl-0.h-100
+                    form#add-photo-profile
+                        label.label.label-profile
+                            i.material-icons Добавить фото
+                            small.form-text.text-muted Нажмите чтобы добавить
+                            input#photo-1(type="file", accept="image/jpeg,image/png")
+        div.col-sm.max-w-500
+            form(method="post")
+                if save
+                    div.form-group
+                        div.alert.alert-success(role="alert") Изменения успешно сохранены!
+                div.form-group.row
+                    label.col-sm-2.col-form-label(for="login-profile") Логин
+                    div.col-sm-10
+                        input.form-control-plaintext#login-profile(type="text" readonly value=common.user.login)
+                div.form-group.row
+                    label.col-sm-2.col-form-label(for="name-profile") Имя
+                    div.col-sm-10
+                        input.form-control#name-profile(type="text" name="name" maxlength="60" value=common.user.name required)
+                div.form-group.row
+                    label.col-sm-2.col-form-label(for="phone-profile") Телефон
+                    div.col-sm-10
+                        input.form-control#phone-profile(type="text" name="phone" maxlength="15" minlength="15" value=common.user.phone required)
+                div.form-group.row
+                    label.col-sm-2.col-form-label(for="email-profile") Email
+                    div.col-sm-10
+                        input.form-control#email-profile(type="email" name="email" maxlength="60" value=common.user.email)
+                div.form-group.row
+                    label.col-sm-2.col-form-label(for="status-profile") Статус
+                    div.col-sm-10
+                        input.form-control#status-profile(type="text" name="status" maxlength="20" value=common.user.channel.status)
+                div.form-group
+                    label(for="description-inp") Описание канала:
+                    textarea.form-control#description-inp(name="description")
+                        =common.user.channel.description
+                button.btn.btn-lg.btn-primary.but-center(type="submit") Сохранить

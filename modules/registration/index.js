@@ -2,14 +2,18 @@ const userDb = require('../db/user');
 const channelDb = require('../db/channel');
 const bcrypt = require('bcrypt');
 
+const User = require('../../models/user');
+const Channel = require('../../models/channel');
+
 const BCRYPT_SALT_ROUNDS = 10;
 
 function findUser (login, callback) {
     userDb.find.findByLogin(login).then(([rows, fields]) => {
         if (rows[0] && rows[0].login === login) {
-            return callback(null, rows[0]);
+            return callback(null, new User(rows[0]));
+        } else {
+            return callback(null);
         }
-        return callback(null);
     });
 }
 
@@ -45,8 +49,10 @@ module.exports = function (name, login, password, phone, done) {
                             //throw err;
                             return done("Ошибка");
                         }
+                        let channel = new Channel({login: rows.insertId});
+                        let user = new User(newUser, channel);
                         console.log('Channel create succesful');
-                        return done(null, newUser);
+                        return done(null, user);
                     });
                 });
             });

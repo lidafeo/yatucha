@@ -34,3 +34,9 @@
 .custom-inp-file .label:hover i,.custom-inp-file .label:hover .title {
     color:#000
 }
+.label-profile {
+    padding-top: 32%
+        !important;
+    height: 180px
+        !important;
+}

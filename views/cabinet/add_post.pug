@@ -1,9 +1,9 @@
-extends ../layout
+extends ./layout
 
 block content
     div.ml-4
         h2 Создание нового поста
-        hr
+        hr(width=600 align="left")
         form.needs-validation.max-w-800#create-post(name="compForm" novalidate)
             div.text-danger.mb-2#err-post
             div.input-group.max-w-600

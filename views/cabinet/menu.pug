@@ -1,0 +1,21 @@
+mixin menu
+    div.bd-sidebar
+        ul.list-group.bg-transparent
+            li.list-menu.list-group-item.list-group
+                b #{common.user.name}
+            li.list-group-item.list-menu
+                a(href="/cabinet/add-post")
+                    img.mr-2(src="/images/icons/image.svg" alt="" width="32" height="32")
+                a.text-dark(href="/cabinet/add-post") Добавить пост
+            li.list-group-item.list-menu
+                a(href="/cabinet")
+                    img.mr-2(src="/images/icons/house.svg" alt="" width="32" height="32")
+                a.text-dark(href="/cabinet") Мои посты
+            li.list-group-item.list-menu
+                a(href="/cabinet/profile")
+                    img.mr-2(src="/images/icons/person.svg" alt="" width="32" height="32")
+                a.text-dark(href="/cabinet/profile") Редактировать профиль
+            li.list-group-item.list-menu
+                a(href="/")
+                    img.mr-2(src="/images/icons/layout-sidebar.svg" alt="" width="32" height="32")
+                a.text-dark(href="/") Лента

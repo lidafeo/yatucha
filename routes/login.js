@@ -11,8 +11,6 @@ module.exports = function(passport) {
                 return res.json({'err': 'Неверный логин или пароль'});
             }
             req.logIn(user, function(err) {
-                console.log(user);
-                console.log(user.login);
                 return err ? next(err) : res.json({'result': 'success'});
             });
 

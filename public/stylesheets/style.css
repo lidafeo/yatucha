@@ -12,7 +12,7 @@ a {
   color: #00B7FF;
 }
 .list-menu {
-  background-color: #ffffffbb
+  background-color: #ffffffcc
                   !important;
 }
 .navbar {
@@ -21,6 +21,10 @@ a {
 .color-inp {
   background-color: #ffffff99
                     !important;
+}
+.max-w-500 {
+    max-width: 500px
+        !important;
 }
 .max-w-600 {
   max-width: 600px;
@@ -97,4 +101,9 @@ a {
 }
 .cursor-pointer {
     cursor: pointer;
+}
+.but-center {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
 }

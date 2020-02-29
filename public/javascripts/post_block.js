@@ -1,4 +1,23 @@
 $(document).ready(function() {
+
+    let currPage = 1;
+    $("body").on('click', '#but-more', function (e) {
+        e.preventDefault();
+        $(this).attr('disabled', true);
+        let url = document.location.pathname;
+        $.post('/get-more', {"url" : url, "page": currPage}, function (data) {
+            $('#but-more').attr('disabled', false);
+            if(data.error) {
+                return console.log(data.error);
+            }
+            if(+data.count === 0) {
+                return $('#but-more').remove();
+            }
+            $("#all-posts").append(data);
+            currPage ++;
+        });
+    });
+
     $("body").on('click', '.like', function (e) {
         let img = $(this);
         let parentDiv = img.parent();
