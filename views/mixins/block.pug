@@ -1,14 +1,14 @@
 mixin block(post)
-    div.post.my-4
+    div.post.my-2.mr-auto.ml-sm-5
         div.row
-            div.col-sm.mb-1
-                a.mr-4.text-dark(href="/channel/" + post.channel)
-                    img.mr-1(src="/images/icons/person-fill.svg" alt="" width="25" height="25")
+            div.col-sm.mb-auto
+                a.mr-2.text-dark(href="/channel/" + post.channel)
+                    img.mr-auto(src="/images/icons/person-fill.svg" alt="" width="25" height="25")
                     =post.channel
                 a(href="/post/" + post.id) читать
             div.col-sm.text-right
-                small.form-text.mr-3.text-muted #{post.getDatePubl()}
-        hr.mt-0
+                small.form-text.mr-auto.text-muted #{post.getDatePubl()}
+        hr.mt-auto
         div.body-post
             div.img-post
                 each im, index in post.img
@@ -16,23 +16,23 @@ mixin block(post)
                         div
                             img.img-post(src="/files/files_posts/" + post.img[index].filename alt="")
                         if index < post.img.length - 1
-                            div.ml-1
+                            div.ml-auto
                                 img.img-post(src="/files/files_posts/" + post.img[index + 1].filename alt="")
                     -index++;
 
-            h4.ml-3= post.title
+            h4.ml-lg-3= post.title
             !=post.body
             div.row
-                div.col-sm.mb-1
+                div.col-sm.mb-lg-1
                     each tag in post.tags
                         a.text-dark(href="/tag/" + tag.tag)
                             ="#" + tag.tag + " "
-            div.row.mt-2
-                div.col-sm.mb-1
+            div.row.mt-lg-2
+                div.col-sm.mb-lg-1
                     if post.userLike
-                        img.dislike.mr-1(src="/images/icons/heart-fill.svg" alt="" width="30" height="30")
+                        img.dislike.mr-lg-1(src="/images/icons/heart-fill.svg" alt="" width="30" height="30")
                     else
-                        img.like.cursor-pointer.mr-1(src="/images/icons/heart.svg" alt="" width="30" height="30" data-id=post.id)
+                        img.like.cursor-pointer.mr-lg-1(src="/images/icons/heart.svg" alt="" width="30" height="30" data-id=post.id)
                     if post.likes != 0
                         span.count-like
                             =post.likes

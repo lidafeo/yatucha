@@ -1,20 +1,19 @@
 mixin navbar
-    nav.navbar.sticky-top.navbar-expand-md.navbar-light.mb-4
+    nav.navbar.sticky-top.navbar-expand-lg.navbar-light.mb-4
         a.mr-1.ml-5(href='/')
             img(src="/images/icons/cloud.svg" alt="" width="48" height="48")
         a.navbar-brand(href='/')
             h4 Ятуча
-        div.collapse.navbar-collapse#navbarSupportedContent
-            ul.mr-auto
-            //form.form-inline.my-2.my-lg-0
-            //    input.form-control.mr-sm-2(type="search" placeholder="Search" aria-label="Search")
-            //    button.btn.btn-outline-success.m-2.my-sm-0(type="submit") Search
-            form.form-inline.my-2.my-lg-0
-                button.btn.btn-outline-dark.m-2.py-lg-2.my-sm-0(type="button", data-toggle="modal", data-target="#signupModal") Регистрация
-            if !common.user
-                form.form-inline.my-2.my-lg-0.mr-5
-                    button.btn.btn-outline-dark.m-2.py-lg-2.my-sm-0(type="button", data-toggle="modal", data-target="#loginModal") Войти
-            if common.user
-                a.nav-link.btn.btn-outline-dark.m-2.my-sm-0.py-lg-2(type="button", href="/cabinet")  Профиль
-            if common.user
-                a.nav-link.btn.btn-outline-dark.m-2.my-sm-0.py-lg-2.mr-5(type="button", href="/logout")  Выйти
+        button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation")
+            span.navbar-toggler-icon
+        div.collapse.navbar-collapse#navbar-content
+            ul.navbar-nav.ml-auto.mt-2.mt-lg-0
+                a.nav-link.btn.btn-outline-dark.py-lg-2.text-dark.mr-lg-2(type="button", data-toggle="modal", data-target="#signupModal") Регистрация
+                if !common.user
+                    a.nav-link.btn.btn-outline-dark.py-lg-2.text-dark.my-2.my-lg-0.mr-lg-2(type="button", data-toggle="modal", data-target="#loginModal") Войти
+                if common.user
+                    li.nav-item
+                        a.nav-link.btn.btn-outline-dark.text-dark.my-2.my-lg-0.mr-lg-2(type="button", href="/cabinet")  Профиль
+                if common.user
+                    li.nav-item
+                        a.nav-link.btn.btn-outline-dark.text-dark.my-2.my-lg-0.mr-lg-2(type="button", href="/logout")  Выйти
